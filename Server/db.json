@@ -1,0 +1,91 @@
+{
+    "contacts":[
+        {
+            "id" : "abcd",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "1"
+        },
+        {
+            "id" : "asd",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "2"
+        },
+        {
+            "id" : "wer",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "3"
+        },
+        {
+            "id" : "rty",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "4"
+        },
+        {
+            "id" : "tyu",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "5"
+        },
+        {
+            "id" : "uio",
+            "name" : "x y zed",
+            "company" : "abcd company",
+            "email" : "xy@gmail.com",
+            "title" : "developer",
+            "mobile" : "123456789",
+            "photo" : "abcd",
+            "groupId" : "6"
+        }
+    ],
+
+    "groups":[
+        {
+            "id":"1",
+            "name":"Colleague"
+        },
+        {
+            "id":"2",
+            "name":"Colleague"
+        },
+        {
+            "id":"3",
+            "name":"Colleague"
+        },
+        {
+            "id":"4",
+            "name":"Colleague"
+        },
+        {
+            "id":"5",
+            "name":"Colleague"
+        },
+        {
+            "id":"6",
+            "name":"Colleague"
+        }
+    ]
+}

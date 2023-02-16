@@ -10,6 +10,7 @@ import { EditContactComponent } from './Components/edit-contact/edit-contact.com
 import { ViewContactComponent } from './Components/view-contact/view-contact.component';
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
+import { HttpClientModule} from "@angular/common/http"
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PageNotFoundComponent } from './Components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
