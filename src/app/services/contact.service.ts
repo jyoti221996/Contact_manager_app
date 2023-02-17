@@ -9,12 +9,13 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ContactService {
 
-  private serverUrl : string = 'http://localhost:9000/';
+  private serverUrl : string = 'http://localhost:9000';
 
   constructor(private httpClient:HttpClient) { }
 
   //To get all contacts
   public getAllContact(): Observable<IContact[]> {
+    debugger
     let dataUrl: string = `${this.serverUrl}/contacts`;
     return this.httpClient.get<IContact[]>(dataUrl).pipe(catchError(this.handleError));
   }
