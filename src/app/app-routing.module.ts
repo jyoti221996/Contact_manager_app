@@ -1,3 +1,4 @@
+import { SearchComponent } from './Components/search/search.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddContactComponent } from './Components/add-contact/add-contact.component';

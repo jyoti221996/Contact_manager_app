@@ -10,41 +10,71 @@
   </div>
 </div>
 
+<div *ngIf="loading">
+  <app-spinner></app-spinner>
+  </div>
+  
+  <div *ngIf="!loading && errorMessage">
+      <div class="container">
+          <div class="row">
+              <div class="col">
+                  <p class="h4 text-danger">
+                      {{errorMessage}}
+                  </p>
+              </div>
+          </div>s
+      </div>
+  </div>
+  
 <div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <form>
-               <div class="mb-2">
-                <input type="text" class="form-control" placeholder="Name">
-               </div> 
-               <div class="mb-2">
-                <input type="text" class="form-control" placeholder="Photo Url">
-               </div> 
-               <div class="mb-2">
-                <input type="email" class="form-control" placeholder="Email">
-               </div> 
-               <div class="mb-2">
-                <input type="number" class="form-control" placeholder="Mobile Number">
-               </div> 
-               <div class="mb-2">
-                <input type="text" class="form-control" placeholder="Company">
-               </div> 
-               <div class="mb-2">
-                <input type="text" class="form-control" placeholder="Title">
-               </div> 
-               <div class="mb-2">
-                <select class="form-control">
-                    <option value="">Select a Group</option>
-                </select>
-               </div> 
-               <div class="mb-2">
-                <input type="submit" class="btn btn-danger" value="Create">
-                <a routerLink="/" class="btn btn-dark ml-1">Close</a>
-               </div>
-            </form>
+  <!-- <pre>{{contact | json}}</pre> -->
+
+  <div class="row">
+    <div class="col-sm-4">
+      <form (submit)="createSubmit()">
+        <div class="mb-2">
+          <input type="text" [(ngModel)]="contact.name" name="name" class="form-control" placeholder="Name"
+            required="true">
         </div>
-        <div class="col-sm-4">
-            <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-image">
+        <div class="mb-2">
+          <input type="text" [(ngModel)]="contact.photo" name="photo" class="form-control" placeholder="Photo Url"
+            required="true">
         </div>
+        <div class="mb-2">
+          <input type="email" [(ngModel)]="contact.email" name="email" class="form-control" placeholder="Email"
+            required="true">
+        </div>
+        <div class="mb-2">
+          <input type="number" [(ngModel)]="contact.mobile" name="mobile" class="form-control"
+            placeholder="Mobile Number" required="true">
+        </div>
+        <div class="mb-2">
+          <input type="text" [(ngModel)]="contact.company" name="company" class="form-control" placeholder="Company"
+            required="true">
+        </div>
+        <div class="mb-2">
+          <input type="text" [(ngModel)]="contact.title" name="title" class="form-control" placeholder="Title"
+            required="true">
+        </div>
+        <div class="mb-2">
+          <select  class="form-control" [(ngModel)]="contact.groupId" name="groupId" required="true" placeholder="Select">
+            <option value="" >Select a Group</option>
+            <option [value]="group.id" *ngFor="let group of groups">{{group.name}}</option>
+          </select>
+      
+          <!-- <select [(ngModel)]="contact.groupId">
+            <option [ngValue]="null" selected disabled>Select User</option>
+            <option *ngFor="let user of userArray" [ngValue]="user">{{user.username}}</option>
+          </select> -->
+        </div>
+        <div class="mb-2">
+          <input type="submit" class="btn btn-danger" value="Create">
+          <a routerLink="/" class="btn btn-dark ml-1">Close</a>
+        </div>
+      </form>
     </div>
+    <div class="col-sm-4">
+      <img src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt="" class="contact-image">
+    </div>
+  </div>
 </div>

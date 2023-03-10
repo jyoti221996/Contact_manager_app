@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +12,8 @@ import { ViewContactComponent } from './Components/view-contact/view-contact.com
 import { SpinnerComponent } from './Components/spinner/spinner.component';
 import { PageNotFoundComponent } from './Components/page-not-found/page-not-found.component';
 import { HttpClientModule} from "@angular/common/http"
+import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './Components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +24,15 @@ import { HttpClientModule} from "@angular/common/http"
     EditContactComponent,
     ViewContactComponent,
     SpinnerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

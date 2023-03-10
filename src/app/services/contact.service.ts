@@ -22,7 +22,8 @@ export class ContactService {
 
   //To get single contacts
   public getContact(contactId: string): Observable<IContact> {
-    let dataUrl: string = `${this.serverUrl}/contacts`;
+    debugger
+    let dataUrl: string = `${this.serverUrl}/contacts/${contactId}`;
     return this.httpClient.get<IContact>(dataUrl).pipe(catchError(this.handleError));
   }
 

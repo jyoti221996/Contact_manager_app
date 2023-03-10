@@ -2,38 +2,42 @@
   <div class="row">
     <div class="col">
       <p class="h3 text-danger fw-bold">Contacts
-        <a class="btn btn-danger btn0sm" routerLink="/contacts/add">New</a>
+        <a class="btn btn-danger btn0sm" routerLink="/contacts/add"> <i class="fa fa-plus"></i> New</a>
       </p>
       <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt officia quos,
         deleniti omnis impedit ab sed, recusandae mollitia cupiditate similique,
         nostrum nobis nisi deserunt magni unde tempora alias nulla? Eligendi!</p>
 
-        <form>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Search user">
-                        </div>
-                        <div class="col">
-                            <input type="submit" class="btn btn-outline-dark" value="Search">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+
     </div>
   </div>
 </div>
 
-<div *ngIf="!loading && contacts.length > 0" class="container mt-3">
+<div *ngIf="loading">
+<app-spinner></app-spinner>
+</div>
+
+<div *ngIf="!loading && errorMessage">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="h4 text-danger">
+                    {{errorMessage}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="container mt-3" *ngIf="!loading && contacts.length > 0" >
     <div class="row">
-        <div class="col-md-6" *ngFor="let contact of contacts">
-            <div class="card list-group-item-danger shadow-lg">
+        <div class="col-md-6 mb-2" *ngFor="let contact of contacts">
+            <div class="card list-group-item-danger shadow-lg" *ngIf="searchText==='' || contact.name.toLowerCase().includes(searchText)">
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col-sm-4">
-                           <img class="contact-image" src="https://cdn-icons-png.flaticon.com/512/219/219986.png" alt=""> 
+                           <img class="contact-image" [src]="contact.photo" alt=""> 
                         </div>
                         <div class="col-sm-7">
                             <ul class="list-group">
@@ -43,13 +47,13 @@
                             </ul>
                         </div>
                         <div class="col-sm-1 d-flex flex-column justify-content-center align-items-center">
-                            <a routerLink="/contacts/view/:contactId" class="btn btn-warning  my-1">
+                            <a routerLink="/contacts/view/{{contact.id}}" class="btn btn-warning  my-1">
                                 <i class="fa fa-eye"></i>
                             </a>
-                            <a routerLink="/contacts/edit/:contactId" class="btn btn-primary  my-1">
+                            <a routerLink="/contacts/edit/{{contact.id}}" class="btn btn-primary  my-1">
                                 <i class="fa fa-pencil"></i>
                             </a>
-                            <button class="btn btn-danger  my-1">
+                            <button class="btn btn-danger  my-1" (click)="deleteContact(contact.id)">
                                 <i class="fa fa-trash"></i>
                             </button>
                         </div>
